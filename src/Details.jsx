@@ -70,7 +70,7 @@ export default function Details() {
               <p className="text-[#f2c48b] mt-5 text-2xl font-bold">
                 ₹{product.price}
               </p>
-              <h3 className="text-white mt-10 font-meduim text-xl text-center md:text-left">
+              <h3 className="text-black mt-10 font-meduim text-xl text-center md:text-left">
                 {product.description}
               </h3>
 

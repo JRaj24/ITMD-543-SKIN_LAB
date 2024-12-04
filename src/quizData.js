@@ -70,4 +70,34 @@ export default [
       "My blemishes are more likely to be broken capillaries or rashes",
     ],
   },
+  {
+    id: 8,
+    question: "How often do you experience dryness on your face?",
+    options: [
+      "Every day, especially after cleansing",
+      "Only during colder months",
+      "Rarely, my skin feels balanced",
+      "Never, my skin feels oily most of the time",
+    ],
+  },
+  {
+    id: 9,
+    question: "Which best describes your skin's texture?",
+    options: [
+      "Smooth with few noticeable bumps",
+      "Rough with dry patches",
+      "Uneven with large pores",
+      "Bumpy with noticeable pimples or blackheads",
+    ],
+  },
+  {
+    id: 10,
+    question: "How does your skin react to the sun?",
+    options: [
+      "I burn easily and experience redness",
+      "I tan a little but mostly burn",
+      "I tan easily without burning",
+      "My skin gets oily and shiny under the sun",
+    ],
+  },
 ];

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import quizData from "./quizData";
 
 const Quiz = () => {
-  let skinType;
   const [currentQues, setQues] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [quizCompleted, setQuizCompleted] = useState(false);
@@ -20,81 +19,100 @@ const Quiz = () => {
   };
 
   const calculateSkinType = () => {
-    const selectedAnswers = answers.map((ans) => ans);
+    const scores = {
+      "Oily Skin": 0,
+      "Dry Skin": 0,
+      "Combination Skin": 0,
+      "Sensitive Skin": 0,
+      "Normal Skin": 0,
+    };
 
-    if (
-      (selectedAnswers[0] === "Large and visible all over" ||
-        selectedAnswers[0] === "Medium-sized all over" ||
-        selectedAnswers[0] === "Small, not easily noticed all over") &&
-      selectedAnswers[1] === "Anytime I have blemishes" &&
-      (selectedAnswers[2] === "Shiny in my T-zone but dull on my cheeks" ||
-        selectedAnswers[2] === "Bright like diamond") &&
-      (selectedAnswers[3] === "Oily in places and dry in others" ||
-        selectedAnswers[3] === "Slick and greasy") &&
-      selectedAnswers[4] === "Blotting or powder all over" &&
-      selectedAnswers[5] === "Clean, for now, but the oil is coming soon" &&
-      selectedAnswers[6] === "I hate them, but they love me"
-    ) {
-      return "Skin Type: Oily Skin";
-    } else if (
-      (selectedAnswers[0] === "Medium-sized all over" ||
-        selectedAnswers[0] === "Small, not easily noticed all over") &&
-      (selectedAnswers[1] === "Sometimes, but only around my cheeks" ||
-        selectedAnswers[1] === "Anytime I have blemishes") &&
-      (selectedAnswers[2] === "Dull everywhere" ||
-        selectedAnswers[2] === "I get more stinging than shine") &&
-      selectedAnswers[3] === "Rough and scaly" &&
-      (selectedAnswers[4] === "Moisturizing, moisturizing, moisturizing" ||
-        selectedAnswers[4] === "A refreshing spritz of facial spray") &&
-      (selectedAnswers[5] === "Stripped of moisture" ||
-        selectedAnswers[5] === "Itchy and a little bit dry") &&
-      selectedAnswers[6] ===
-        "I'd trade my skin's flakiness and tightness for a few blackheads"
-    ) {
-      return "Skin Type: Dry Skin";
-    } else if (
-      (selectedAnswers[0] ===
-        "Larger or medium and only visible in the T-zone" ||
-        selectedAnswers[0] === "Medium-sized all over" ||
-        selectedAnswers[0] === "Small, not easily noticed all over") &&
-      (selectedAnswers[1] === "Sometimes, but only around my cheeks" ||
-        selectedAnswers[1] === "Whenever and wherever I use new products" ||
-        selectedAnswers[1] === "Anytime I have blemishes") &&
-      selectedAnswers[2] === "Shiny in my T-zone but dull on my cheeks" &&
-      selectedAnswers[3] === "Oily in places and dry in others" &&
-      selectedAnswers[4] ===
-        "Blotting or powdering on the forehead, nose, and/or chin" &&
-      selectedAnswers[5] ===
-        "Clean and great in my T-zone, but my cheeks are a little bit dried out" &&
-      selectedAnswers[6] ===
-        "They have their territory around my T-zone, and I have claimed the cheeks for my own"
-    ) {
-      return "Skin Type: Combination Skin";
-    } else if (
-      (selectedAnswers[0] === "Small, not easily noticed all over" ||
-        selectedAnswers[0] === "Medium-sized all over") &&
-      (selectedAnswers[1] === "Anytime I have blemishes" ||
-        selectedAnswers[1] === "Whenever and wherever I use new products" ||
-        selectedAnswers[1] === "More often than I care to admit") &&
-      (selectedAnswers[2] === "I get more stinging than shine" ||
-        selectedAnswers[2] === "Bright like diamond") &&
-      selectedAnswers[3] === "Irritated and angry" &&
-      selectedAnswers[4] === "A refreshing spritz of facial spray" &&
-      selectedAnswers[5] === "Itchy and a little bit dry" &&
-      selectedAnswers[6] ===
-        "My blemishes are more likely to be broken capillaries or rashes"
-    ) {
-      return "Skin Type: Sensitive Skin";
-    } else {
-      return "Skin Type: Normal Skin";
+    answers.forEach((answer, index) => {
+      // Map answers to skin types and increment scores
+      switch (index) {
+        case 0:
+          if (answer === "Large and visible all over") scores["Oily Skin"]++;
+          if (answer === "Small, not easily noticed all over") scores["Dry Skin"]++;
+          if (answer === "Larger or medium and only visible in the T-zone")
+            scores["Combination Skin"]++;
+          break;
+        case 1:
+          if (answer === "Anytime I have blemishes") scores["Oily Skin"]++;
+          if (answer === "Sometimes, but only around my cheeks")
+            scores["Combination Skin"]++;
+          if (answer === "Whenever and wherever I use new products")
+            scores["Sensitive Skin"]++;
+          break;
+        case 2:
+          if (answer === "Shiny in my T-zone but dull on my cheeks")
+            scores["Combination Skin"]++;
+          if (answer === "Bright like diamond") scores["Oily Skin"]++;
+          if (answer === "Dull everywhere") scores["Dry Skin"]++;
+          break;
+        case 3:
+          if (answer === "Oily in places and dry in others")
+            scores["Combination Skin"]++;
+          if (answer === "Slick and greasy") scores["Oily Skin"]++;
+          if (answer === "Rough and scaly") scores["Dry Skin"]++;
+          if (answer === "Irritated and angry") scores["Sensitive Skin"]++;
+          break;
+        case 4:
+          if (answer === "Blotting or powder all over") scores["Oily Skin"]++;
+          if (answer === "Moisturizing, moisturizing, moisturizing")
+            scores["Dry Skin"]++;
+          if (answer === "Blotting or powdering on the forehead, nose, and/or chin")
+            scores["Combination Skin"]++;
+          break;
+        case 5:
+          if (answer === "Clean, for now, but the oil is coming soon")
+            scores["Oily Skin"]++;
+          if (answer === "Stripped of moisture") scores["Dry Skin"]++;
+          if (answer === "Itchy and a little bit dry") scores["Sensitive Skin"]++;
+          break;
+        case 6:
+          if (answer === "I hate them, but they love me") scores["Oily Skin"]++;
+          if (answer === "I'd trade my skin's flakiness and tightness for a few blackheads")
+            scores["Dry Skin"]++;
+          if (answer === "They have their territory around my T-zone, and I have claimed the cheeks for my own")
+            scores["Combination Skin"]++;
+          if (answer === "My blemishes are more likely to be broken capillaries or rashes")
+            scores["Sensitive Skin"]++;
+          break;
+        case 7:
+          if (answer === "Never, my skin feels oily most of the time")
+            scores["Oily Skin"]++;
+          if (answer === "Every day, especially after cleansing") scores["Dry Skin"]++;
+          break;
+        case 8:
+          if (answer === "Uneven with large pores") scores["Oily Skin"]++;
+          if (answer === "Rough with dry patches") scores["Dry Skin"]++;
+          if (answer === "Smooth with few noticeable bumps") scores["Normal Skin"]++;
+          break;
+        case 9:
+          if (answer === "My skin gets oily and shiny under the sun")
+            scores["Oily Skin"]++;
+          if (answer === "I burn easily and experience redness")
+            scores["Sensitive Skin"]++;
+          if (answer === "I tan easily without burning") scores["Normal Skin"]++;
+          break;
+        default:
+          break;
+      }
+    });
+
+    // Determine the skin type with the highest score
+    const highestScore = Math.max(...Object.values(scores));
+    const topSkinTypes = Object.keys(scores).filter(
+      (type) => scores[type] === highestScore
+    );
+
+    if (topSkinTypes.length > 1) {
+      return `Skin Type: Mixed (${topSkinTypes.join(", ")})`;
     }
+    return `Skin Type: ${topSkinTypes[0]}`;
   };
 
-  // Calling calculateSkinType function
-  if (quizCompleted) {
-    skinType = calculateSkinType();
-    console.log(skinType);
-  }
+  const skinType = quizCompleted ? calculateSkinType() : "";
 
   return (
     <div>
@@ -111,17 +129,15 @@ const Quiz = () => {
             {quizData[currentQues].question}
           </h2>
           <div className="border border-[#c49358] flex flex-col p-5 rounded-xl m-5 pl-10 pr-10">
-            {quizData[currentQues].options.map((option, index) => {
-              return (
-                <button
-                  onClick={() => handleClick(option)}
-                  className="border border-[#c49358] text-[#c49358] w-96  font-bold px-1 py-4 m-3 rounded-full hover:bg-black hover:text-white duration-500"
-                  key={index}
-                >
-                  {option}
-                </button>
-              );
-            })}
+            {quizData[currentQues].options.map((option, index) => (
+              <button
+                onClick={() => handleClick(option)}
+                className="border border-[#c49358] text-[#c49358] w-96 font-bold px-1 py-4 m-3 rounded-full hover:bg-black hover:text-white duration-500"
+                key={index}
+              >
+                {option}
+              </button>
+            ))}
           </div>
         </div>
       )}
