@@ -7,12 +7,12 @@ import Details from "./Details.jsx";
 import Cart from "./Cart.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import ContextProvider, { ShopContext } from "./shopContext.jsx";
+import ContextProvider from "./shopContext.jsx";
 
 export default function App() {
   const [text, setText] = useState("");
   return (
-    <div>
+    <div className="bg-white min-h-screen">
       <ContextProvider>
         <Router>
           <Navbar />
