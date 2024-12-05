@@ -22,7 +22,7 @@ export default function SignUp() {
 
       if (response.ok) {
         alert("Signup successful!");
-        navigate("/");
+        navigate("/signin");  // Redirect to sign-in after successful signup
       } else {
         const data = await response.json();
         alert(data.message || "Signup failed!");
@@ -138,34 +138,20 @@ export default function SignUp() {
         <button
           type="submit"
           style={styles.button}
-          onMouseOver={(e) =>
-            Object.assign(e.target.style, styles.buttonHover)
-          }
-          onMouseOut={(e) =>
-            Object.assign(e.target.style, {
-              backgroundColor: styles.button.backgroundColor,
-              transform: "",
-            })
-          }
+          onMouseOver={(e) => Object.assign(e.target.style, styles.buttonHover)}
+          onMouseOut={(e) => Object.assign(e.target.style, { backgroundColor: styles.button.backgroundColor, transform: "" })}
         >
-          Sign Up
+          Register
+        </button>
+        <button
+          onClick={() => navigate("/signin")}
+          style={styles.secondaryButton}
+          onMouseOver={(e) => Object.assign(e.target.style, styles.secondaryButtonHover)}
+          onMouseOut={(e) => Object.assign(e.target.style, { backgroundColor: "white", color: "#c49358" })}
+        >
+          Already have an account? Sign In
         </button>
       </form>
-      <button
-        style={styles.secondaryButton}
-        onMouseOver={(e) =>
-          Object.assign(e.target.style, styles.secondaryButtonHover)
-        }
-        onMouseOut={(e) =>
-          Object.assign(e.target.style, {
-            backgroundColor: styles.secondaryButton.backgroundColor,
-            color: styles.secondaryButton.color,
-          })
-        }
-        onClick={() => navigate("/signin")}
-      >
-        Already Signed In? Log In
-      </button>
     </div>
   );
 }

@@ -22,8 +22,8 @@ export default function SignIn() {
 
       if (response.ok) {
         const data = await response.json();
+        localStorage.setItem("token", data.token);  // Store token in localStorage
         alert("Login successful!");
-        console.log("Token:", data.token);
         navigate("/");
       } else {
         const data = await response.json();
@@ -114,15 +114,8 @@ export default function SignIn() {
         <button
           type="submit"
           style={styles.button}
-          onMouseOver={(e) =>
-            Object.assign(e.target.style, styles.buttonHover)
-          }
-          onMouseOut={(e) =>
-            Object.assign(e.target.style, {
-              backgroundColor: styles.button.backgroundColor,
-              transform: "",
-            })
-          }
+          onMouseOver={(e) => Object.assign(e.target.style, styles.buttonHover)}
+          onMouseOut={(e) => Object.assign(e.target.style, { backgroundColor: styles.button.backgroundColor, transform: "" })}
         >
           Log In
         </button>
