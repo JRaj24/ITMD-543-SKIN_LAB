@@ -4,8 +4,8 @@ import Serums from "./serums";
 import data from "./data";
 
 export default function BrowseProducts() {
-  const [searchTerm, setSearchTerm] = useState(""); // State for search input
-  const [filterCategory, setFilterCategory] = useState("all"); // State for filter
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [filterCategory, setFilterCategory] = useState("all"); 
 
   // Filter products based on search term and category
   const filteredProducts = data.filter((product) => {
@@ -16,8 +16,8 @@ export default function BrowseProducts() {
   });
 
   return (
-    <div className="bg-[#f2c48b] p-5">
-      <h1 className="text-5xl font-bold text-center mt-10 mb-5">Our Products</h1>
+    <div className="bg-[#fffff] p-5">
+      <h1 className="text-6xl font-bold text-center uppercase text-[#c49358] mb-8 pb-5">Our Products</h1> {/* Increased font size */}
 
       {/* Search and Filter Section */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-10">
@@ -25,14 +25,14 @@ export default function BrowseProducts() {
         <input
           type="text"
           placeholder="Search for products..."
-          className="p-3 w-full md:w-1/2 border rounded-lg mb-4 md:mb-0"
+          className="p-3 w-full md:w-1/2 border-2 border-[#c49358] rounded-lg mb-4 md:mb-0"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
         {/* Filter Dropdown */}
         <select
-          className="p-3 w-full md:w-1/4 border rounded-lg"
+          className="p-3 w-full md:w-1/4 border-2 border-[#c49358] rounded-lg"
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
         >
@@ -52,6 +52,7 @@ export default function BrowseProducts() {
                 name={product.name}
                 price={product.price}
                 img={product.img}
+                shadowColor="#c49358" // Pass shadow color as a prop
               />
             </Link>
           ))
