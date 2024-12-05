@@ -1,0 +1,43 @@
+name: Node.js CI with React and Vercel Deployment
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow for pushes to the `main` branch
+  pull_request:
+    branches:
+      - main  # Trigger for pull requests targeting `main`
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Specify Node.js version
+          cache: "npm"  # Cache npm dependencies
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the React app
+      - name: Build the React app
+        run: npm run build
+
+      # Step 5: Install Vercel CLI
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      # Step 6: Deploy to Vercel
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Secure token for Vercel
+        run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
