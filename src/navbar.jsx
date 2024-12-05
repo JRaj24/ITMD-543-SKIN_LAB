@@ -52,7 +52,9 @@ export default function Navbar() {
           <Link to="/signup">
             <img src="/images/user.png" alt="" className="mx-3" /> {/* Reduced icon spacing */}
           </Link>
-          <img src="/images/fav.png" alt="" className="mx-3" />
+          <Link to="/favorites">
+            <img src="/images/fav.png" alt="Favorites" className="mx-3" />
+          </Link>
           <Link to="/cart">
             <img src="/images/cart.png" alt="" className="mx-3" />
           </Link>

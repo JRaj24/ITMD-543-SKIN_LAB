@@ -7,6 +7,8 @@ export default [
     category: "skincare",
     description:
       "Powered by 12% Niacinamide and Azelaic Acid using Double Encapsulation Technology, this clarifying serum targets 7 signs - excess oil, clogged pores, blackheads, bumpy texture, redness, pigmentation, and acne marks, to make way for clear, bright skin! Its non-sticky lightweight formula absorbs quickly without clogging pores, minimizing their appearance – making it ideal for skin types prone to acne and blemishes.",
+    dailyDeal: true,
+    discountPercentage: 20,
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ export default [
     category: "skincare",
     description:
       "Get pro-grade salon-like results at home with this overnight leave-on mask. Packed with gentle yet potent exfoliators, it unclogs pores, removes dead skin cells, reduces whiteheads, all while moisturizing skin. Over time, it minimizes the appearance of pores, making your skin look and feel smooth.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ export default [
     category: "skincare",
     description:
       "This cleanser simplifies your skincare routine by combining two vital steps into one - removing makeup & impurities and hydrating your skin. Infused with moisture-locking humectants, it hydrates deep within your skin, refreshing it thoroughly.",
+    dailyDeal: true,
+    discountPercentage: 15,
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ export default [
     category: "skincare",
     description:
       "This moisturizer feels like a hydration haven! Its lightweight non-sticky formula absorbs into the skin within seconds and keeps your skin deeply moisturized for 24 hours.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 5,
@@ -43,6 +51,8 @@ export default [
     category: "skincare",
     description:
       "Break free from breakouts in 4 weeks! Made with 2% Salicylic Acid, Hyaluronic Acid, and Niacinamide, it unclogs pores, regulates oil production, and is ideal for all skin types.",
+    dailyDeal: true,
+    discountPercentage: 25,
   },
   {
     id: 6,
@@ -52,6 +62,8 @@ export default [
     category: "skincare",
     description:
       "This sunscreen brightens your skin while preventing tan and delivers a dewy glow. Infused with Niacinamide and Provitamin B5, it reduces pigmentation and brightens your complexion.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 7,
@@ -61,6 +73,8 @@ export default [
     category: "skincare",
     description:
       "A little exfoliation daily glows a long way! This alcohol-free toner gently exfoliates dead skin cells, unclogs pores, and rebalances skin pH.",
+    dailyDeal: true,
+    discountPercentage: 10,
   },
   {
     id: 8,
@@ -70,6 +84,8 @@ export default [
     category: "skincare",
     description:
       "A powerful brightening serum with 15% L-Ascorbic Acid and Vitamin E – for brighter skin in 5 days. It visibly fades dark spots and reduces pigmentation.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 9,
@@ -79,6 +95,8 @@ export default [
     category: "hair care",
     description:
       "A long-lasting hair spray designed to provide all-day hold and protection while maintaining hair health and shine.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 10,
@@ -88,6 +106,8 @@ export default [
     category: "hair care",
     description:
       "A nourishing shampoo that strengthens hair roots, reduces hair fall, and adds a natural shine to your locks.",
+    dailyDeal: true,
+    discountPercentage: 18,
   },
   {
     id: 11,
@@ -97,60 +117,74 @@ export default [
     category: "hair care",
     description:
       "A gentle shampoo infused with botanical extracts to cleanse and rejuvenate your hair.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 12,
-    name: "Body Wash 1",
+    name: " Hydrating Body Wash",
     price: "3000",
     img: "/images/bo.webp",
     category: "body care",
     description:
       "A refreshing body wash that cleanses and hydrates, leaving your skin soft and rejuvenated.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 13,
-    name: "Body Wash 2",
+    name: " Exfoliant Body Wash",
     price: "3000",
     img: "/images/bo3.webp",
     category: "body care",
     description:
       "A hydrating body wash enriched with essential oils to provide silky-smooth skin.",
+    dailyDeal: true,
+    discountPercentage: 12,
   },
   {
     id: 14,
-    name: "Body Wash 3",
+    name: "Soothing Body Wash",
     price: "3000",
     img: "/images/bo4.webp",
     category: "body care",
     description:
       "A gentle body wash with a soothing fragrance that leaves your skin feeling fresh and clean.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 15,
-    name: "Body Wash 4",
+    name: " Lavishing Body Wash",
     price: "3000",
     img: "/images/bo5.webp",
     category: "body care",
     description:
       "A luxurious body wash formulated to cleanse and nourish dry skin, providing deep hydration.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
   {
     id: 16,
-    name: "Body Wash 5",
+    name: "Fresh Body Wash",
     price: "3000",
     img: "/images/body_wash1.webp",
     category: "body care",
     description:
       "An invigorating body wash that revitalizes your senses and provides long-lasting freshness.",
+    dailyDeal: true,
+    discountPercentage: 20,
   },
   {
     id: 17,
-    name: "Body Wash 6",
+    name: "shea butter Body Wash",
     price: "3000",
     img: "/images/body_wash2.webp",
     category: "body care",
     description:
       "A moisturizing body wash with a rich lather that gently cleanses and protects your skin's natural barrier.",
+    dailyDeal: true,
+    discountPercentage: 20,
   },
   {
     id: 18,
@@ -160,5 +194,7 @@ export default [
     category: "skincare",
     description:
       "A nourishing lip balm that soothes and protects your lips while adding a subtle tint of color.",
+    dailyDeal: false,
+    discountPercentage: 0,
   },
 ];

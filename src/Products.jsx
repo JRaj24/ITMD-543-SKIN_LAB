@@ -5,16 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Products() {
   const navigate = useNavigate();
-  const isAuthenticated = !!localStorage.getItem("authToken"); // Check if user is authenticated by looking for a token
-
-  const handleAuthRedirect = (path) => {
-    if (isAuthenticated) {
-      navigate(path);
-    } else {
-      alert("Please log in to access this feature.");
-      navigate("/signin");
-    }
-  };
 
   return (
     <div className="bg-[#f2c48b] min-h-[600px] py-10" id="Product">
@@ -50,7 +40,7 @@ export default function Products() {
           Don't know your skin type?
         </h3>
         <button
-          onClick={() => handleAuthRedirect("/quiz")}
+          onClick={() => navigate("/quiz")}
           className="bg-black text-white text-center w-32 font-semibold px-1 py-3 rounded-full md:mx-10 cursor-pointer"
         >
           Take a Quiz!
@@ -60,7 +50,7 @@ export default function Products() {
       {/* Browse Products Button */}
       <div className="flex justify-center items-center mt-10 mb-10">
         <button
-          onClick={() => handleAuthRedirect("/browse-products")}
+          onClick={() => navigate("/browse-products")}
           className="bg-black text-white text-center w-[500px] font-bold px-12 py-6 rounded-full md:mx-10 cursor-pointer text-xl transform transition duration-300 hover:scale-105 hover:bg-[#333]"
         >
           Browse Products
