@@ -53,29 +53,29 @@ export default function Cart() {
       <div>
         <h1 className="text-[#f2c48b] text-3xl font-bold">Bag</h1>
         { cart.length > 0 ? (
-          <div className="m-6 max-w-xs  text-white">{cart}</div>
+          <div className="m-6 max-w-xs  text-black">{cart}</div>
         ) : (
-          <h3 className="text-white text-xl mt-5">Oops! Your bag is empty...</h3>
+          <h3 className="text-black text-xl mt-5">Oops! Your bag is empty...</h3>
         )}
       </div>
 
       <div className="flex flex-col mt-16 justify-center w-96 text-left p-10 md:mt-6">
         <h1 className="text-[#f2c48b] text-3xl font-bold">Summary</h1>
         <div className="flex justify-between mt-5 pb-5 border-b border-[#f2c48b]">
-          <h3 className="text-white mt-8 text-xl">SubTotal</h3>
-          <h3 className="text-white mt-8 text-xl">₹{subtotal.toFixed(2)}</h3>
+          <h3 className="text-black mt-8 text-xl">SubTotal</h3>
+          <h3 className="text-black mt-8 text-xl">₹{subtotal.toFixed(2)}</h3>
         </div>
 
         <div className="flex justify-between pb-5 border-b border-[#f2c48b]">
-          <h3 className="text-white mt-8 text-xl">
+          <h3 className="text-black mt-8 text-xl">
             Delivery and Handling <br /> charges
           </h3>
-          <h3 className="text-white mt-8 text-xl">₹00.0</h3>
+          <h3 className="text-black mt-8 text-xl">₹00.0</h3>
         </div>
 
         <div className="flex justify-between pb-5 border-b border-[#f2c48b]">
-          <h3 className="text-white mt-8 text-xl">Total</h3>
-          <h3 className="text-white mt-8 text-xl">₹{subtotal.toFixed(2)}</h3>
+          <h3 className="text-black mt-8 text-xl">Total</h3>
+          <h3 className="text-black mt-8 text-xl">₹{subtotal.toFixed(2)}</h3>
         </div>
         <button className="bg-[#d0bea7] hover:border hover:border-[#d0bea7] hover:bg-black hover:text-[#c49358] duration-500 w-40 mx-auto mt-6 uppercase font-semibold px-2 py-4 rounded-lg md:mx-auto">
           checkout

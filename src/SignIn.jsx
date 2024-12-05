@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export default function SignIn() {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,43 +40,51 @@ export default function SignIn() {
       maxWidth: "400px",
       margin: "50px auto",
       padding: "20px",
-      border: "1px solid #c49358", // Updated border color
-      borderRadius: "10px",
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      borderRadius: "15px",
+      boxShadow: "0 6px 20px rgba(0, 0, 0, 0.15)",
+      background: "linear-gradient(135deg, #fff8f0, #ffe4c7)",
       textAlign: "center",
       fontFamily: "'Arial', sans-serif",
     },
     heading: {
       fontSize: "2rem",
-      color: "#333",
+      color: "#a97a46",
       marginBottom: "20px",
+      fontWeight: "bold",
     },
     form: {
       display: "flex",
       flexDirection: "column",
+      gap: "15px",
     },
     input: {
-      marginBottom: "15px",
-      padding: "10px",
+      padding: "12px",
       fontSize: "1rem",
-      border: "1px solid #c49358", // Updated border color
-      borderRadius: "5px",
+      border: "1px solid #c49358",
+      borderRadius: "8px",
       outline: "none",
+      transition: "box-shadow 0.3s ease, transform 0.2s ease",
+    },
+    inputFocus: {
+      boxShadow: "0 0 8px rgba(201, 147, 88, 0.5)",
+      transform: "scale(1.02)",
     },
     button: {
-      padding: "10px 15px",
+      padding: "12px 20px",
       fontSize: "1rem",
       color: "white",
-      backgroundColor: "#c49358", // Updated background color
+      backgroundColor: "#c49358",
       border: "none",
-      borderRadius: "5px",
+      borderRadius: "8px",
       cursor: "pointer",
+      transition: "background-color 0.3s ease, transform 0.2s ease",
     },
     buttonHover: {
-      backgroundColor: "#a97a46", // Slightly darker shade for hover
+      backgroundColor: "#a97a46",
+      transform: "scale(1.03)",
     },
   };
-  
+
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Sign In</h1>
@@ -86,31 +92,41 @@ export default function SignIn() {
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Enter your email"
           value={formData.email}
           onChange={handleChange}
           required
           style={styles.input}
+          onFocus={(e) => Object.assign(e.target.style, styles.inputFocus)}
+          onBlur={(e) => Object.assign(e.target.style, { boxShadow: "", transform: "" })}
         />
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter your password"
           value={formData.password}
           onChange={handleChange}
           required
           style={styles.input}
+          onFocus={(e) => Object.assign(e.target.style, styles.inputFocus)}
+          onBlur={(e) => Object.assign(e.target.style, { boxShadow: "", transform: "" })}
         />
         <button
           type="submit"
           style={styles.button}
-          onMouseOver={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
-          onMouseOut={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
+          onMouseOver={(e) =>
+            Object.assign(e.target.style, styles.buttonHover)
+          }
+          onMouseOut={(e) =>
+            Object.assign(e.target.style, {
+              backgroundColor: styles.button.backgroundColor,
+              transform: "",
+            })
+          }
         >
           Log In
         </button>
       </form>
     </div>
   );
-  
 }

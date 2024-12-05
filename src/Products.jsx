@@ -1,14 +1,23 @@
 import Serums from "./serums";
 import data from "./data.js";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Products() {
+  const navigate = useNavigate();
+  const isAuthenticated = !!localStorage.getItem("authToken"); // Check if user is authenticated by looking for a token
+
+  const handleAuthRedirect = (path) => {
+    if (isAuthenticated) {
+      navigate(path);
+    } else {
+      alert("Please log in to access this feature.");
+      navigate("/signin");
+    }
+  };
+
   return (
-    <div
-      className="bg-[#f2c48b] min-h-[600px] py-10"
-      id="Product"
-    >
+    <div className="bg-[#f2c48b] min-h-[600px] py-10" id="Product">
       {/* Delivery, Payment, and Return Section */}
       <div className="flex flex-col justify-center items-center mt-5 md:flex-row">
         <div className="flex flex-col justify-center items-center md:flex-row md:mt-16 border-b border-t pt-5 pb-3 border-black">
@@ -40,22 +49,22 @@ export default function Products() {
         <h3 className="p-2 mx-3 md:mx-0 text-lg font-medium">
           Don't know your skin type?
         </h3>
-        <Link
-          to="/quiz"
+        <button
+          onClick={() => handleAuthRedirect("/quiz")}
           className="bg-black text-white text-center w-32 font-semibold px-1 py-3 rounded-full md:mx-10 cursor-pointer"
         >
           Take a Quiz!
-        </Link>
+        </button>
       </div>
 
       {/* Browse Products Button */}
       <div className="flex justify-center items-center mt-10 mb-10">
-        <Link
-          to="/browse-products"
+        <button
+          onClick={() => handleAuthRedirect("/browse-products")}
           className="bg-black text-white text-center w-[500px] font-bold px-12 py-6 rounded-full md:mx-10 cursor-pointer text-xl transform transition duration-300 hover:scale-105 hover:bg-[#333]"
         >
           Browse Products
-        </Link>
+        </button>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ export default function Hero() {
 
         <div className="flex flex-col">
           <h2 className="text-[#c49358] max-w-sm mt-8 mx-10 text-justify">
-            Embrace the season with our Winter Special Skin and Lip Serum –
+            Embrace the season with our Winter Special Skin and Lip Serum-
             crafted for healthy, radiant skin. With a commitment to transparency,
             we provide a complete list of ingredients and their precise concentrations,
             ensuring no hidden surprises. Pure care, honest skincare.
