@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function Products() {
   return (
-    <div className="bg-[#f2c48b]" id="Product">
+    <div
+      className="bg-[#f2c48b] min-h-[600px] py-10"
+      id="Product" // Adjusted height and added padding
+    >
       {/* Delivery, Payment, and Return Section */}
       <div className="flex flex-col justify-center items-center mt-10 md:flex-row">
         <div className="flex flex-col justify-center items-center md:flex-row md:mt-24 border-b border-t pt-7 pb-5 border-black">
@@ -25,10 +28,10 @@ export default function Products() {
       </div>
 
       {/* Headings */}
-      <h1 className="text-4xl mt-24 md:text-7xl text-center uppercase text-black md:max-w-xl italic mx-auto">
+      <h1 className="text-4xl mt-24 md:text-7xl text-center uppercase text-black md:max-w-xl  mx-auto">
         Choose the skincare that
       </h1>
-      <h1 className="text-6xl md:text-6xl font-bold text-center uppercase text-[#594024]">
+      <h1 className="text-6xl md:text-6xl font-bold text-center uppercase">
         suits you the best
       </h1>
 
@@ -39,25 +42,21 @@ export default function Products() {
         </h3>
         <Link
           to="/quiz"
-          className="bg-black text-white text-center w-32 font-semibold px-1 py-3 rounded-lg md:mx-10 cursor-pointer"
+          className="bg-black text-white text-center w-32 font-semibold px-1 py-3 rounded-full md:mx-10 cursor-pointer"
         >
           Take a Quiz!
         </Link>
       </div>
 
-      {/* Products Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 m-5">
-        {data.map((product) => (
-          <Link key={product.id} to={`/${product.id}`}>
-            <Serums
-              name={product.name}
-              price={product.price}
-              img={product.img}
-            />
-          </Link>
-        ))}
+      {/* Browse Products Button */}
+      <div className="flex justify-center items-center mt-10 mb-10">
+        <Link
+          to="/browse-products"
+          className="bg-black text-white text-center w-80 font-bold px-8 py-5 rounded-full md:mx-10 cursor-pointer text-xl"
+        >
+          Browse Products
+        </Link>
       </div>
-
     </div>
   );
 }

@@ -9,11 +9,10 @@ export default function Hero() {
         />
         <div className="absolute top-48 z-40 md:top-20 md:mt-16">
           <h1 className="text-6xl md:text-8xl text-center uppercase text-[#c49358]">
-            Skincare
+            Skin-Lab
           </h1>
-          <h1 className="text-6xl md:text-9xl font-bold text-left uppercase text-[#c49358]">
-            meets Science
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-left uppercase text-[#c49358]">
+            Skincare meets Science          </h1>
         </div>
 
         <img

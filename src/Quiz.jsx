@@ -125,7 +125,7 @@ const Quiz = () => {
           <h1 className="text-[#c49358] text-5xl -mt-5 text-center font-semibold">
             Know your skin!
           </h1>
-          <h2 className="text-white text-3xl font-normal mt-16 m-3">
+          <h2 className="text-black text-3xl font-normal mt-16 m-3">
             {quizData[currentQues].question}
           </h2>
           <div className="border border-[#c49358] flex flex-col p-5 rounded-xl m-5 pl-10 pr-10">
