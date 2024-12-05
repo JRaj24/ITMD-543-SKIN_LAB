@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
-export default function SignUp() {
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+
+export default function SignIn() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate(); 
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,18 +16,20 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/signup", {
+      const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        alert("Signup successful!");
+        const data = await response.json();
+        alert("Login successful!");
+        console.log("Token:", data.token);
         navigate("/");
       } else {
         const data = await response.json();
-        alert(data.message || "Signup failed!");
+        alert(data.message || "Login failed!");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -73,31 +77,12 @@ export default function SignUp() {
     buttonHover: {
       backgroundColor: "#a97a46", // Slightly darker shade for hover
     },
-    secondaryButton: {
-      padding: "8px 12px",
-      fontSize: "1rem",
-      color: "#c49358", // Updated text color
-      backgroundColor: "white",
-      border: "1px solid #c49358", // Updated border color
-      borderRadius: "5px",
-      cursor: "pointer",
-      marginTop: "10px",
-    },
   };
   
   return (
     <div style={styles.container}>
-      <h1 style={styles.heading}>Sign Up</h1>
+      <h1 style={styles.heading}>Sign In</h1>
       <form style={styles.form} onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          style={styles.input}
-        />
         <input
           type="email"
           name="email"
@@ -122,15 +107,9 @@ export default function SignUp() {
           onMouseOver={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
           onMouseOut={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
         >
-          Sign Up
+          Log In
         </button>
       </form>
-      <button
-        style={styles.secondaryButton}
-        onClick={() => navigate("/signin")}
-      >
-        Already Signed In? Log In
-      </button>
     </div>
   );
   

@@ -38,29 +38,7 @@ export default function Details() {
                 alt=""
                 className="rounded-3xl max-w-xs md:max-w-sm md:mx-10"
               />
-              <div className="flex items-center justify-center cursor-pointer mt-10">
-                <img
-                  src="/images/otherpics.webp"
-                  alt=""
-                  srcset=""
-                  className="w-16 mx-3  rounded-2xl"
-                />
-                <img
-                  src="/images/otherpics.webp"
-                  alt=""
-                  className="w-16 mx-3  rounded-2xl"
-                />
-                <img
-                  src="/images/otherpics.webp"
-                  alt=""
-                  className="w-16 mx-3 rounded-2xl"
-                />
-                <img
-                  src="/images/otherpics.webp"
-                  alt=""
-                  className="w-16 mx-3 rounded-2xl"
-                />
-              </div>
+              
             </div>
 
             <div className="flex flex-col justify-start ml-10 -mt-5 items-center md:max-w-xl md:items-start">
